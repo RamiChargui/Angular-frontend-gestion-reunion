@@ -1,0 +1,50 @@
+<div class="col-md-12 grid-margin">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h4 class="font-weight-bold mb-0">List Reservation</h4>
+    </div>
+    <div>
+        <a type="button" routerLink="/admin/addreclamation"  class="btn btn-primary btn-icon-text btn-rounded">
+          <i class="ti-clipboard btn-icon-prepend"></i>Nouveau
+        </a>
+    </div>
+  </div>
+</div>
+<div class="example-wrapper" style="height: 700px;">
+  <table class="table table-striped ">
+<thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">Salle</th>
+    <th scope="col">Respansable</th>
+    <th scope="col">Jour</th>
+    <th scope="col">De l'heure</th>
+    <th scope="col">A l'heure</th>
+    
+     <th scope="col">Actions</th>
+    
+  </tr>
+
+</thead>
+<tbody>
+
+  <tr *ngFor = "let reservation of crudserv.list">
+    <td>{{reservation.id}}</td>
+    <td >{{reservation.salle}}</td>
+    <td >{{reservation.respansable}}</td>
+    <td>{{reservation.jour}}</td>
+    <td>{{reservation.timeDeb}}</td>
+    <td>{{reservation.timeFin}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="removeData(reservation.id)">
+          <i class="fa fa-trash-o"></i></button>
+    
+    </td>
+    <td><button class="btn btn-warning" (click)="selectData(reservation)">
+      <i class="fa fa-pencil-square-o"></i></button>
+    </td>
+    
+  </tr>
+    </tbody>
+</table>
+</div>

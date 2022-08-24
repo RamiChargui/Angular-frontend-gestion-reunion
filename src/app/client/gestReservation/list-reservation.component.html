@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 04</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			
+			
+				<div class="col-md-12">
+					<h3 class="text-center mb-4">Reservations</h3>
+					<div class="table-wrap">
+						<table class="table table-striped ">
+                            <thead>
+                              <tr>
+                                
+                                <th scope="col">Salle</th>
+                                <th scope="col">Jour</th>
+                                <th scope="col">De l'heure</th>
+                                <th scope="col">A l'heure</th>
+                                
+                              </tr>
+                            
+                            </thead>
+                            <tbody>
+                            
+                              <tr *ngFor = "let reservation of resServ.list">
+                                
+                                <td >{{ getNameSalle(reservation.salle)}}</td>
+                                <td>{{getJour(reservation.jour)}}</td>
+                                <td>{{getTime(reservation.timeDeb)}}</td>
+                                <td>{{getTime(reservation.timeFin)}}</td> 
+                              </tr>
+                                </tbody>
+                            </table>
+					</div>
+				</div>
+		
+		</div>
+	</section>
+
+	
+	</body>
+</html>
+

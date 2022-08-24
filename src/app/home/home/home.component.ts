@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Department } from 'src/app/modules/department';
+import { Department } from 'src/app/models/department';
 import { CrudService } from 'src/app/services/crud.service';
 
 @Component({

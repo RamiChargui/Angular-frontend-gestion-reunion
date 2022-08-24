@@ -1,0 +1,44 @@
+<div class="col-md-12 grid-margin">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h4 class="font-weight-bold mb-0">List Materiel</h4>
+    </div>
+    <div>
+        <a type="button" routerLink="/admin/addmateriel"  class="btn btn-primary btn-icon-text btn-rounded">
+          <i class="ti-clipboard btn-icon-prepend"></i>Nouveau
+        </a>
+    </div>
+  </div>
+</div>
+<div class="example-wrapper" style="height: 700px;">
+  <table class="table table-striped ">
+<thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">Libelle</th>
+    
+     <th scope="col">Actions</th>
+    
+  </tr>
+
+</thead>
+<tbody>
+
+  <tr *ngFor = "let materiel of crudserv.list">
+    <td>{{materiel.id}}</td>
+    <td>{{materiel.libelle}}</td>
+ 
+
+    <td>
+      <button class="btn btn-danger" (click)="removeData(materiel.id)">
+          <i class="fa fa-trash-o"></i></button>
+    
+    </td>
+    <td><button class="btn btn-warning" (click)="selectData(materiel)">
+      <i class="fa fa-pencil-square-o"></i></button>
+    </td>
+    
+  </tr>
+    </tbody>
+</table>
+</div>

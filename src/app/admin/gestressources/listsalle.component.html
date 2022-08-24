@@ -1,0 +1,51 @@
+
+  <div class="col-md-12 grid-margin">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h4 class="font-weight-bold mb-0">List Salles</h4>
+      </div>
+      <div>
+          <button type="button"  class="btn btn-primary btn-icon-text btn-rounded">
+            <i class="ti-clipboard btn-icon-prepend" style="margin-top: 90px;"></i>Nouveau
+          </button>
+      </div>
+    </div>
+  </div>
+<div class="example-wrapper" style="height: 700px;">
+    <table class="table table-striped ">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Libelle</th>
+      <th scope="col">Capacite</th>
+     
+       <th scope="col">Actions</th>
+      
+    </tr>
+  
+</thead>
+  <tbody>
+  
+    <tr *ngFor = "let salle of crudserv.list">
+      <td>{{salle.id}}</td>
+      <td>{{salle.libelle}}</td>
+      <td>{{salle.capacite}}</td>
+     
+        
+   
+
+      <td>
+        <button class="btn btn-danger" (click)="removeData(salle.id)">
+            <i class="fa fa-trash-o"></i></button>
+      
+      </td>
+      <td><button class="btn btn-warning" (click)="selectData(salle)">
+        <i class="fa fa-pencil-square-o"></i></button></td>
+      
+    </tr>
+      </tbody>
+</table>
+</div>
+
+
+

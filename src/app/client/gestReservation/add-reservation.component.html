@@ -1,0 +1,55 @@
+<div class="container" style="width: 400px;">
+    <h3>Creer Reservation</h3>
+<form  [formGroup]="this.reservationServ.formData" (ngSubmit)="onSubmit()">
+    <div *ngIf="!listusers">
+            <input  type="hidden" class="form-control" id="id" formControlName="id">
+        <div class="form-group">
+            <label   for="jour" >Jour</label>
+            <input type="date" class="form-control" id="jour" formControlName="jour">
+            
+        </div>
+        <div class="form-group">
+            <label   for="debut" >De L'heure : </label>
+            <input type="time" class="form-control" id="debut" formControlName="timeDeb">
+            
+        </div>
+        <div class="form-group">
+            <label   for="fin" >A L'heure : </label>
+            <input type="time" class="form-control" id="fin" formControlName="timeFin">
+            
+        </div>
+
+        <div class="form-group">
+            <label   for="salle" >Capacite de salle : </label>
+            <input type="number" class="form-control" id="salle"  min="3" max="30" formControlName="salle">
+        
+        </div>
+        <div class="form-group listB">
+            
+            <button class="btn btn-succes"  (click)="suivant()">Suivant</button>
+        </div>
+
+
+       
+    </div>
+    
+    <div *ngIf="listusers">
+        <div *ngFor="let user of emplserv.list">
+            <label for="participiants">
+              <input type="checkbox" [value]="user.id" id="participiants"  (change)="onCbChange($event)"  />
+              {{user.nom}} {{user.prenom}}
+            </label>
+        </div>
+        <div class="from-group">
+            <button class="btn btn-succes"  (click)="suivant()">Retour</button>
+        
+            <button class="btn btn-succes" [disabled]="!this.reservationServ.formData.valid" type="submit">Valider</button>
+        </div>
+    </div>
+
+
+
+</form>
+
+</div>
+

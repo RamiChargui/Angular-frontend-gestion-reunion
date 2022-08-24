@@ -1,0 +1,20 @@
+
+<div class="container">
+    <h3>Nouveau department</h3>
+<form  [formGroup]="this.deptserv.formData" (ngSubmit)="onSubmit()">
+    
+        <input  type="hidden" class="form-control" id="id" formControlName="id">
+    <div class="form-group">
+        <label   for="libelle" >libelle</label>
+        <input type="text" class="form-control" id="libelle" formControlName="libelle">
+        
+    </div>
+    <div class="from-group">
+        <p>Complete le formilaire pour active le button.</p>
+        <button class="btn btn-succes" [disabled]="!this.deptserv.formData.valid" type="submit">ajout</button>
+    </div>
+
+
+</form>
+
+</div>

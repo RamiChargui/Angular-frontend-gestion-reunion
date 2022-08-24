@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-client',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenServ:TokenService) { }
 
   ngOnInit(): void {
+  }
+  Logout(){
+    this.tokenServ.clearToken();
   }
 
 }

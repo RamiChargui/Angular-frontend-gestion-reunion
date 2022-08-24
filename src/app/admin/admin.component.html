@@ -1,4 +1,156 @@
-<p>admin works!</p>
-<router-outlet>
-    <app-home></app-home>
-</router-outlet>
+
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        
+        
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown me-1">
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="ti-email mx-0"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
+            
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="ti-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+              <i class='fa fa-user-circle'></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item" (click)="Logout()">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+     
+      </div>
+    </nav>
+    <!-- partial -->
+    
+
+
+
+    <div class="container-fluid page-body-wrapper">
+        <nav id="sidebar">
+            
+        <div class="p-4 pt-5">
+              
+        <ul class="list-unstyled components mb-5">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="homeadmin">
+                  <i class="ti-shield menu-icon"></i>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+              </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Department</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li> <a  routerLink="listdepartment">List Departments</a></li>
+                <li> <a  routerLink="adddepartment">Nouveau Department</a></li>
+              
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reservation</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li> <a  routerLink="listreservation">List Reservations</a></li>
+                <li> <a  routerLink="addreservation">Nouveau Reservation</a></li>
+              
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Salle</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li> <a  routerLink="listsalle">List Salles</a></li>
+                <li> <a  routerLink="addsalle">Nouveau Salle</a></li>
+              
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Materiel</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li> <a  routerLink="listmateriel">List Materiels</a></li>
+                <li> <a  routerLink="addmateriel">Nouveau Materiel</a></li>
+              
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reclamation</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li> <a  routerLink="listreclamation">List Reclamation</a></li>    
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li> <a  routerLink="listemployee">List Employee</a></li>              
+            </ul>
+          </li>
+          
+        </ul>
+    
+        
+    
+        
+    
+      </div>
+    </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        
+          
+          
+        <router-outlet></router-outlet>
+      
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>

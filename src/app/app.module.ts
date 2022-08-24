@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientModule } from './client/client.module';
 import { AdminModule } from './admin/admin.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptorProvider } from './helps/token.interceptor';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,10 @@ import { AdminModule } from './admin/admin.module';
     HttpClientModule,
     ClientModule,
     AdminModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider, AuthGuard],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

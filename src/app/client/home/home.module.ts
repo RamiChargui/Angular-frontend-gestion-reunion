@@ -3,18 +3,26 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { RegisterComponent } from './register.component';
+import { LoginComponent } from './login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    RegisterComponent,
+    LoginComponent
   ]
 })
 export class HomeModule { }
