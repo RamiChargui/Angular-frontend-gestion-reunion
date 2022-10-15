@@ -30,8 +30,8 @@ getNumero()
     return this.http.post<Salle>(`${this.baseUrl}`, salle);
   }
   
-  updatedata(id: number, value: any): Observable<Object> {
-    return this.http.patch(`${this.baseUrl}/${id}`, value);
+  updatedata( value: Salle): Observable<Object> {
+    return this.http.patch(`${this.baseUrl}/${value.id}`, value);
   }
  
   deleteData(id: number): Observable<any> {

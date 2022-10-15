@@ -11,7 +11,6 @@ import { RegisterComponent } from './home/register.component';
 
 const routes: Routes = [
   {path : 'client', component : ClientComponent,canActivate:[AuthGuard] ,children:[
-    {path : 'home', component: HomeComponent},
     {path : 'new-reservation', component: AddReservationComponent},
     {path : 'list-reservation', component: ListReservationComponent},
     {path : 'new-reclamation', component: NewReclamationComponent},
@@ -20,6 +19,7 @@ const routes: Routes = [
     
   ]
 },
+{path : 'home', component: HomeComponent},
 {path : 'register', component: RegisterComponent},
 {path : 'login', component: LoginComponent},
 ];

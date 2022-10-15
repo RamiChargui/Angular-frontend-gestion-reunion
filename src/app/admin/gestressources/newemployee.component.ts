@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Department } from 'src/app/models/department';
-import { User } from 'src/app/models/user';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-newemployee',
+  templateUrl: './newemployee.component.html',
+  styleUrls: ['./newemployee.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class NewemployeeComponent implements OnInit {
+
   userForm!: FormGroup;
   department!: Department;
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     this.emplserv.formData.value.department= String( "/api/departments/"+this.emplserv.formData.value.department);
     this.emplserv.createData(this.emplserv.formData.value).
       subscribe(data => {                 
-        this.router.navigate(['/admin/listemployee']);
+        this.router.navigate(['admin/listemployee']);
       });
   }
 
@@ -68,4 +68,5 @@ export class RegisterComponent implements OnInit {
   }
 
   
+
 }

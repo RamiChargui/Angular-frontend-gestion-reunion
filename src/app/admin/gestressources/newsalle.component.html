@@ -1,1 +1,25 @@
-<p>newsalle works!</p>
+
+<div class="container w-50 p-5">
+    <h3>Nouveau Salle</h3>
+<form  [formGroup]="this.SalleService.formData" (ngSubmit)="onSubmit()">
+    
+        <input  type="hidden" class="form-control" id="id" formControlName="id">
+    <div class="form-group">
+        <label   for="libelle" >libelle</label>
+        <input type="text" class="form-control" id="libelle" formControlName="libelle">
+        
+    </div>
+    <div class="form-group">
+        <label   for="capacite" >Capacite</label>
+        <input type="number" class="form-control" id="capacite" formControlName="capacite">
+    </div>
+    <div class="from-group">
+        <p>Complete le formilaire pour active le button.</p>
+        <button class="btn text-light" style="background-color: #71b959;" [disabled]="!this.SalleService.formData.valid" type="submit">Ajouter</button>
+    </div>
+
+
+</form>
+
+</div>
+

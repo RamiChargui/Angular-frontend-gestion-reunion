@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container w-50 p-5">
     <h3>Nouveau department</h3>
 <form  [formGroup]="this.deptserv.formData" (ngSubmit)="onSubmit()">
     
@@ -11,7 +11,7 @@
     </div>
     <div class="from-group">
         <p>Complete le formilaire pour active le button.</p>
-        <button class="btn btn-succes" [disabled]="!this.deptserv.formData.valid" type="submit">ajout</button>
+        <button class="btn text-light" style="background-color: #71b959;" [disabled]="!this.deptserv.formData.valid" type="submit">Ajouter</button>
     </div>
 
 

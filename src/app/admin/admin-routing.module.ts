@@ -13,6 +13,7 @@ import { NewdeptComponent } from './gestressources/newdept.component';
 import { NewmatComponent } from './gestressources/newmat.component';
 import { NewreservComponent } from './gestressources/newreserv.component';
 import { NewsalleComponent } from './gestressources/newsalle.component';
+import { NewemployeeComponent } from './gestressources/newemployee.component';
 
 import { HomeComponent } from './home/home.component';
 
@@ -30,6 +31,7 @@ const routes: Routes = [
     {path : 'addreservation', component: NewreservComponent},
     {path : 'listreclamation', component: ListreclamComponent},
     {path : 'listemployee', component: ListempComponent},
+    {path : 'addemployee', component: NewemployeeComponent}
     
     
   ] },

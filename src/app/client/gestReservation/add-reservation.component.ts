@@ -117,9 +117,7 @@ export class AddReservationComponent implements OnInit {
     var form=this.reservationServ.formData.value;
     var testRes=true;
     var testsall=false;
-   
-    
-    
+
     for(salle in list){
       if( list[salle].capacite==this.reservationServ.formData.value.salle){
         testsall=true;

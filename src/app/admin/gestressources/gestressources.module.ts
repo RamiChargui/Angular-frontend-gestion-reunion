@@ -13,6 +13,7 @@ import { NewreservComponent } from './newreserv.component';
 import { ListempComponent } from './listemp.component';
 import { ListreclamComponent } from './listreclam.component';
 import { EditdeptComponent } from './editdept.component';
+import { NewemployeeComponent } from './newemployee.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EditdeptComponent } from './editdept.component';
     NewreservComponent,
     ListempComponent,
     ListreclamComponent,
-    EditdeptComponent
+    EditdeptComponent,
+    NewemployeeComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,8 @@ import { EditdeptComponent } from './editdept.component';
     NewreservComponent,
     ListempComponent,
     ListreclamComponent,
-    EditdeptComponent
+    EditdeptComponent,
+    NewemployeeComponent
   ]
 })
 export class GestressourcesModule { }
