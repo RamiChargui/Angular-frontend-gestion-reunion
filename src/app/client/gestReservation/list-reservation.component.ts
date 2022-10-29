@@ -36,7 +36,7 @@ export class ListReservationComponent implements OnInit {
   getNameSalle(nom: string):string{
     var ss:any;
     for(ss in this.salleServ.list){
-      console.log(this.salleServ.list[ss].id.toString()+" "+nom);
+     // console.log(this.salleServ.list[ss].id.toString()+" "+nom);
       if(this.salleServ.list[ss].id.toString()==nom.substring(12)){
         return this.salleServ.list[ss].libelle;
 
@@ -58,18 +58,6 @@ export class ListReservationComponent implements OnInit {
     this.resServ.formData = this.fb.group(Object.assign({},item));
     
   }
-
-  getData() {
-   
-    this.resServ.getAll().subscribe(
-      response => { 
-        
-     this.resServ.list = response["hydra:member"];
-    
-    }
-    );
-  }
-
   
   
 

@@ -13,41 +13,31 @@
   </div>
 </div>
 <div class="example-wrapper" style="height: 700px;">
-  <table class="table table-striped ">
-<thead>
-  <tr>
-    <th scope="col">id</th>
-    <th scope="col">Salle</th>
-    <th scope="col">Respansable</th>
-    <th scope="col">Jour</th>
-    <th scope="col">De l'heure</th>
-    <th scope="col">A l'heure</th>
-    
-     <th scope="col">Actions</th>
-    
-  </tr>
-
-</thead>
-<tbody>
-
-  <tr *ngFor = "let reservation of crudserv.list">
-    <td>{{reservation.id}}</td>
-    <td >{{reservation.salle}}</td>
-    <td >{{reservation.respansable}}</td>
-    <td>{{reservation.jour}}</td>
-    <td>{{reservation.timeDeb}}</td>
-    <td>{{reservation.timeFin}}</td>
-    <td>
-      <button class="btn btn-danger" (click)="removeData(reservation.id)">
-          <i class="fa fa-trash-o"></i></button>
-    
-    </td>
-    <td><button class="btn btn-warning" (click)="selectData(reservation)">
-      <i class="fa fa-pencil-square-o"></i></button>
-    </td>
-    
-  </tr>
-    </tbody>
-</table>
+ 
+    <table class="table table-striped ">
+      <thead>
+        <tr>
+          
+          <th scope="col">Salle</th>
+          <th scope="col">Jour</th>
+          <th scope="col">respansable</th>
+          <th scope="col">De l'heure</th>
+          <th scope="col">A l'heure</th>
+          
+        </tr>
+      
+      </thead>
+      <tbody>
+      
+        <tr *ngFor = "let reservation of crudserv.list">
+          
+          <td >{{getNameSalle(reservation.salle)}}</td>
+          <td>{{getJour(reservation.jour)}}</td>
+          <td >{{getUser(reservation.respansable)}}</td>
+          <td>{{getTime(reservation.timeDeb)}}</td>
+          <td>{{getTime(reservation.timeFin)}}</td> 
+        </tr>
+          </tbody>
+      </table>
 </div>
 </div>

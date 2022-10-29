@@ -10,16 +10,17 @@ import { User } from '../models/user';
 export class EmployeeService {
 
   private baseUrl = "http://127.0.0.1:8000/api/users";
-  
+  userConnect!: User;
   choixmenu : string  = 'A';
   list : User[] = [];
+  user!: User ;
   
   public formData !:  FormGroup; 
   constructor(private http: HttpClient) { }
  
  
-  getData(id: number): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/${id}`);
+  getData(id: string): Observable<User> {
+    return this.http.get<User>(`http://127.0.0.1:8000${id}`);
   }
  
 getNumero()

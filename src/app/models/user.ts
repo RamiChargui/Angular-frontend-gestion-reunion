@@ -10,6 +10,7 @@ export class User {
     department!: string;
     reservationsCreer!: Reservation[];
     reunions!: Reservation[];
+    notifications!: string[];
     roles!:string[];
     
  

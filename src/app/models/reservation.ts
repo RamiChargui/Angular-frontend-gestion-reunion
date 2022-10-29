@@ -8,7 +8,7 @@ export class Reservation {
     jour!: Date;
     timeDeb!: Time;
     timeFin!: Time;
-    respansable!: User;
+    respansable!: string;
     participiants!: User[];
 
     

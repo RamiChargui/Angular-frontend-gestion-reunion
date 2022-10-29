@@ -1,9 +1,10 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Reservation } from 'src/app/models/reservation';
 import { Salle } from 'src/app/models/salle';
+import { EmployeeService } from 'src/app/services/employee.service';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { SalleService } from 'src/app/services/salle.service';
 
@@ -18,7 +19,7 @@ export class ListreservComponent implements OnInit {
   public nomSalle ="";
   public datepipe!: DatePipe;
   constructor(
-    public crudserv:ReservationService, public salleServ:SalleService,public fb: FormBuilder, 
+    public crudserv:ReservationService, public salleServ:SalleService,public userServ:EmployeeService,public fb: FormBuilder, 
     private router: Router,
   ) { }
 
@@ -40,17 +41,60 @@ export class ListreservComponent implements OnInit {
 
   }
 
+  private getSalles():void{
+    this.salleServ.getAll().subscribe( 
+      response => { 
+        this.salleServ.list = response["hydra:member"];
+
+    }
+    );
+
+  }
+
+  private getUsers():void{
+    this.userServ.getAll().subscribe( 
+      response => { 
+        this.userServ.list = response["hydra:member"];
+
+    }
+    );
+
+  }
+
   
 
-  public getSalle(){
-   
-    this.salleServ.getData("/api/salles/1").subscribe(
-      (response:Salle) => { this.nomSalle=response.libelle;
-       
+ 
+
+  getJour(jour: Date){
+    return jour.toString().substring(0,10);
+  }
+  getTime(time: Time){
+    return time.toString().substring(11,16);
+  }
+  getNameSalle(nom: string):string{
+    var ss:any;
+    for(ss in this.salleServ.list){
+     // console.log(this.salleServ.list[ss].id.toString()+" "+nom);
+      if(this.salleServ.list[ss].id.toString()==nom.substring(12)){
+        return this.salleServ.list[ss].libelle;
+
+      }
     }
-    ); 
-    return this.nomSalle;
-    
+    return "...";
+
+  }
+
+  getUser(nom: string):string{
+    var ss:any;
+    for(ss in this.userServ.list){
+     // console.log(this.salleServ.list[ss].id.toString()+" "+nom);
+      if(this.userServ.list[ss].id.toString()==nom.substring(11)){
+        return this.userServ.list[ss].email;
+
+      }
+    }
+    return "...";
+
   }
 
   removeData(id:number) {
@@ -66,8 +110,11 @@ export class ListreservComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    
     this.getReservations();
-    this.getSalle();
+    this.getSalles();
+    this.getUsers();
+    console.log(this.crudserv.list);
        
  
   }
