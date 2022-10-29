@@ -1,34 +1,27 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card border-0 shadow rounded-3 my-5">
-        <div class="card-body p-4 p-sm-5">
-          <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
-          <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" formControlName="username" placeholder="name@example.com">
-                  <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword"  formControlName="password" placeholder="Password">
-                  <label for="floatingPassword">Password</label>
-                </div>
-  
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                  <label class="form-check-label" for="rememberPasswordCheck">
-                    Remember password
-                  </label>
-                </div>
-                <div class="d-grid">
-                  <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" >Sign in</button>
-                </div>
-                
-              </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="content" style="background-color: #9289D8; width: 100%;height: 650px;">
 
+    <div class="screen">
+      <div class="screen__content">
+        <form class="login" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="login__field">
+           
+            <input type="text" class="login__input" formControlName="username" placeholder="User name / Email">
+          </div>
+          <div class="login__field">
+            
+            <input type="password" class="login__input"  formControlName="password" placeholder="Password">
+          </div>
+          <button class="button login__submit" type="submit">
+            <span class="button__text">Log In Now</span>
+            <span class="button__icon ">></span>
+          </button>				
+        </form>
+      </div>
+      <div class="screen__background">
+        <span class="screen__background__shape screen__background__shape2"></span>
+        <span class="screen__background__shape screen__background__shape1"></span>
+      </div>		
+    </div>
+  
+</div>

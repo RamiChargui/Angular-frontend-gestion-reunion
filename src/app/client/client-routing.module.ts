@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 import { ClientComponent } from './client.component';
 import { AddReservationComponent } from './gestReservation/add-reservation.component';
+import { ListInviteComponent } from './gestReservation/list-invite.component';
 import { ListReservationComponent } from './gestReservation/list-reservation.component';
 import { NewReclamationComponent } from './gestReservation/new-reclamation.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
     {path : 'new-reservation', component: AddReservationComponent},
     {path : 'list-reservation', component: ListReservationComponent},
     {path : 'new-reclamation', component: NewReclamationComponent},
+    {path : 'list-invitation', component: ListInviteComponent},
     
 
     

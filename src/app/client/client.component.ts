@@ -1,4 +1,4 @@
-import { ReadPropExpr } from '@angular/compiler';
+import { ReadPropExpr, ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { EmployeeService } from '../services/employee.service';
@@ -21,26 +21,29 @@ export class ClientComponent implements OnInit {
   listNot!:Notification[];
   notification!:Notification;
  
-  public getUser():void{
-    this.userServ.getData('/api/users/6').subscribe(
+  public getUser(id:number):void{
+    this.userServ.getData('/api/users/'+id).subscribe(
       response => {this.userServ.user=response;
-      this.emailUser.email=response.email }     
+        console.log(this.userServ.user);
+        this.getNotifications(this.userServ.user)
+     }     
     );
     
     
   }
 
-  /*public getNotification(url:string):void{
+  public getNotification(url:string):void{
     this.notificationServ.getData(url).subscribe(
       response => {this.notificationServ.list.push(response);}
     )
+  
   }
 
-  public getNotifications(){
-    for(var item in this.userServ.user.notifications){
+  public getNotifications(user:User){
+    for(var item in user.notifications){
       this.getNotification(this.userServ.user.notifications[item])
     } 
-  }*/
+  }
 
   
   Logout(){
@@ -48,13 +51,13 @@ export class ClientComponent implements OnInit {
   }
 
   ngOnInit():void{
-    this.getUser();
     this.userConnect=this.tokenServ.getUser();
-    console.log(this.emailUser.email);
+    this.getUser(this.userConnect.id);
+    
 
-   // this.getNotifications();
     //this.getNotifications();
-    //console.log(this.emailUser);
+    //this.getNotification("aaa");
+    //console.log(this.userServ.user);
     //this.getMonNotif();
   }
 

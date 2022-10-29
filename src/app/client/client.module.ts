@@ -9,6 +9,7 @@ import { AddReservationComponent } from './gestReservation/add-reservation.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListReservationComponent } from './gestReservation/list-reservation.component';
 import { NewReclamationComponent } from './gestReservation/new-reclamation.component';
+import { ListInviteComponent } from './gestReservation/list-invite.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NewReclamationComponent } from './gestReservation/new-reclamation.compo
     GestReservationComponent,
     AddReservationComponent,
     ListReservationComponent,
-    NewReclamationComponent
+    NewReclamationComponent,
+    ListInviteComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { NewReclamationComponent } from './gestReservation/new-reclamation.compo
     GestReservationComponent,
     AddReservationComponent,
     ListReservationComponent,
-    NewReclamationComponent
+    NewReclamationComponent,
+    ListInviteComponent
   ]
 })
 export class ClientModule { }

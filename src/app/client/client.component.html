@@ -57,30 +57,18 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
           <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-          <a class="dropdown-item">
-            <div class="item-thumbnail">
-              <div class="item-icon bg-success">
-                <i class="ti-info-alt mx-0"></i>
-              </div>
-            </div>
-            <div class="item-content">
-              <h6 class="font-weight-normal">Application Error</h6>
-              <p class="font-weight-light small-text mb-0 text-muted">
-                Just now
-              </p>
-            </div>
-          </a>
           
-          <a class="dropdown-item">
+          
+          <a class="dropdown-item" *ngFor = "let not of  notificationServ.list">
             <div class="item-thumbnail">
               <div class="item-icon bg-info">
                 <i class="ti-user mx-0"></i>
               </div>
             </div>
-            <div class="item-content">
-              <h6 class="font-weight-normal">Nouveau Reunion a presente</h6>
+            <div class="item-content" >
+              <h6 class="font-weight-normal">{{not.message}}</h6>
               <p class="font-weight-light small-text mb-0 text-muted">
-                2 days ago
+               {{not.date}}
               </p>
             </div>
           </a>
@@ -115,16 +103,19 @@
           
     <ul class="list-unstyled components mb-5">
       <li>
-        <a routerLink="client">Home</a>
+        <a routerLink="home">Accueil</a>
       </li>
       <li>
-          <a routerLink="new-reservation">Creer Reservation</a>
+          <a routerLink="new-reservation">Créer Réservation</a>
       </li>
       <li>
-        <a routerLink="list-reservation">List Reservation</a>
+        <a routerLink="list-reservation">Mes Réservation</a>
       </li>
       <li>
-        <a routerLink="new-reclamation">Passer une Reclamation</a>
+        <a routerLink="list-invitation">Invité à</a>
+      </li>
+      <li>
+        <a routerLink="new-reclamation">Passer une Réclamation</a>
       </li>
      
     </ul>
@@ -134,15 +125,7 @@
 
 <!-- Page Content  -->
 <div id="content" class="p-4 p-md-5 pt-5">
-  <tbody>
-                            
-    <tr >
-      
-     <td>{{ userServ.user.notifications}}</td>
-      <td></td>
-     
-    </tr>
-  </tbody>
+
 <router-outlet></router-outlet>
 </div>
 </div>

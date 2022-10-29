@@ -2,20 +2,19 @@ import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { Reservation } from 'src/app/models/reservation';
-import { Salle } from 'src/app/models/salle';
 import { User } from 'src/app/models/user';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { SalleService } from 'src/app/services/salle.service';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
-  selector: 'app-list-reservation',
-  templateUrl: './list-reservation.component.html',
-  styleUrls: ['./list-reservation.component.css']
+  selector: 'app-list-invite',
+  templateUrl: './list-invite.component.html',
+  styleUrls: ['./list-invite.component.css']
 })
-export class ListReservationComponent implements OnInit {
+export class ListInviteComponent implements OnInit {
+
   userConnect!:User;
   public reservations!: Reservation[]; 
   constructor(
@@ -24,15 +23,10 @@ export class ListReservationComponent implements OnInit {
   ) { }
 
   private getReservations():void{
-    this.resServ.getAll().pipe(
-      map((response) => {
-        console.log(response);
-        if(response.respansable=='/api/users/'+this.userConnect.id){
-          this.resServ.list.push(response)
-        }
-      })
-    ).subscribe()
-    
+    this.resServ.getAll().subscribe(
+      response => { this.resServ.list = response["hydra:member"];
+    }
+    );
   }
 
   getJour(jour: Date){
